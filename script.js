@@ -26,13 +26,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById('subtitle').textContent = data[lang].home_subtitle;
                 document.getElementById('description').textContent = data[lang].home_description;
                 document.getElementById('about-content').textContent = data[lang].about_description;
-                document.getElementById('contact-email').textContent = data[lang].contact_description;
+                const contactParts = (data[lang].contact_description || '').split('\n');
+                document.getElementById('contact-email').textContent = contactParts[0] || '';
                 document.getElementById('blog-content').textContent = data[lang].blog_description;
                 document.getElementById('product-content').textContent = data[lang].product_description;
                 document.getElementById('team-content').textContent = data[lang].team_description;
                 document.getElementById('gallery-content').textContent = data[lang].gallery_description;
-                document.getElementById('contact-phone').textContent = data[lang].phone;
-                document.getElementById('contact-email').textContent = data[lang].email;
+                document.getElementById('contact-phone').textContent = contactParts[1] || '';
             }
 
             // Load language saved in localStorage
